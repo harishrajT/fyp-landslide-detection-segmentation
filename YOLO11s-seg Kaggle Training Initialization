@@ -1,0 +1,16 @@
+# Clear hidden cache to prevent dataloader corruption during high-res scaling
+!rm -rf /kaggle/working/Merged_YOLO_Dataset/labels/train/.cache
+!rm -rf /kaggle/working/Merged_YOLO_Dataset/labels/val/.cache
+
+# Initialize YOLO11s-seg with optimal Phase 2 hyperparameters
+!yolo train \
+    model=yolo11s-seg.pt \
+    data=/kaggle/working/Merged_YOLO_Dataset/data.yaml \
+    epochs=100 \
+    patience=20 \
+    imgsz=800 \
+    batch=4 \
+    optimizer='AdamW' \
+    lr0=0.001 \
+    project=FYP_Landslide_Detection \
+    name=Phase2_Iter2_800px_Optimal
