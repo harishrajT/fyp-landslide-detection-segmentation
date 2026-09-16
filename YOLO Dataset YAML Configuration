@@ -1,0 +1,11 @@
+# YOLO11 Segmentation Dataset Configuration
+path: /kaggle/working/Merged_YOLO_Dataset
+train: images/train
+val: images/val
+
+# Class mappings based on strict data curation protocol
+nc: 3
+names:
+  0: Debris
+  1: Exposed Area
+  2: Road
